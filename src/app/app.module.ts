@@ -10,6 +10,8 @@ import { DisciplinaComponent } from './disciplina/disciplina.component';
 import { NotasComponent } from './notas/notas.component';
 import { HorarioComponent } from './horario/horario.component';
 
+import { ManutencaoService } from '../manutencao.service';
+
 @NgModule({
   imports: [BrowserModule, FormsModule],
   declarations: [
@@ -20,6 +22,8 @@ import { HorarioComponent } from './horario/horario.component';
     NotasComponent,
     HorarioComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+  providers: [ManutencaoService]
 })
 export class AppModule {}
