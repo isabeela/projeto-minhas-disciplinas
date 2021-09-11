@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManutencaoService } from '../../manutencao.service';
 
 @Component({
   selector: 'app-disciplina',
@@ -6,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./disciplina.component.css']
 })
 export class DisciplinaComponent implements OnInit {
-  constructor() {}
+  inputValue: '';
+
+  constructor(public manutencaoService: ManutencaoService) {
+    manutencaoService.add('Desenvolvimento para Servidores II');
+    manutencaoService.add('Desenvolvimento para dispositivos móveis I');
+  }
+
+  handleClick() {
+    this.manutencaoService.add(this.inputValue);
+    this.inputValue = '';
+  }
 
   ngOnInit() {}
 }

@@ -1,13 +1,30 @@
 import { Injectable } from '@angular/core';
 
-interface Manutencao {
+interface Subjects {
   id: number;
-  nome: String;
-  p1: number;
-  p2: number;
-  diaSemana: number;
-  horario: number;
+  name: String;
 }
 
 @Injectable()
-export class ManutencaoService {}
+export class ManutencaoService {
+  private list: Subjects[] = [];
+  constructor() {}
+
+  getList() {
+    return this.list;
+  }
+
+  add(inputValue: string) {
+    this.getList().push({
+      id: new Date().getTime(),
+      name: inputValue
+    });
+  }
+
+  remove(id: number) {
+    this.getList().splice(
+      this.getList().indexOf(this.getList().find(e => e.id === id)),
+      1
+    );
+  }
+}
