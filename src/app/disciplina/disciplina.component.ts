@@ -19,5 +19,9 @@ export class DisciplinaComponent implements OnInit {
     this.inputValue = '';
   }
 
+ 
+
+  
+
   ngOnInit() {}
 }

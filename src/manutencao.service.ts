@@ -31,17 +31,17 @@ export class ManutencaoService {
     });
   }
 
-  adds(inputValue: number) {
-    this.getDia().push({
-      ids: new Date().getDate(),
-      diaSemana: inputValue
-    });
-  }
-
   remove(id: number) {
     this.getList().splice(
       this.getList().indexOf(this.getList().find(e => e.id === id)),
       1
     );
+  }
+
+  adds(inputValue: number) {
+    this.getDia().push({
+      ids: new Date().getTime(),
+      diaSemana: inputValue
+    });
   }
 }
